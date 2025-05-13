@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamanlayıcı Geri Sayım</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" x-data="countdown()" :class="currentTheme">
+        <div class="header">
+            <h1>Zamanlayıcı Geri Sayım</h1>
+            <button @click="toggleFullscreen" class="fullscreen-btn">
+                <span x-text="isFullscreen ? '⤓' : '⤢'"></span>
+            </button>
+        </div>
+        
+        <div class="theme-selector">
+            <button @click="setTheme('default')" :class="{ active: currentTheme === 'default' }">Varsayılan</button>
+            <button @click="setTheme('dark')" :class="{ active: currentTheme === 'dark' }">Koyu</button>
+            <button @click="setTheme('light')" :class="{ active: currentTheme === 'light' }">Açık</button>
+        </div>
+
+        <div class="preset-times">
+            <button @click="setPresetTime(5)">5 dk</button>
+            <button @click="setPresetTime(10)">10 dk</button>
+            <button @click="setPresetTime(15)">15 dk</button>
+            <button @click="setPresetTime(30)">30 dk</button>
+        </div>
+        
+        <div class="timer-input">
+            <input type="number" x-model="minutes" min="0" max="60" placeholder="Dakika">
+            <input type="number" x-model="seconds" min="0" max="59" placeholder="Saniye">
+            <button @click="startTimer" x-show="!isRunning">Başlat</button>
+            <button @click="stopTimer" x-show="isRunning">Durdur</button>
+            <button @click="resetTimer">Sıfırla</button>
+        </div>
+
+        <div class="timer-display">
+            <div class="time" x-text="formatTime(timeLeft)"></div>
+        </div>
+
+        <div class="timer-status" x-text="status"></div>
+
+        <div class="settings">
+            <label class="sound-toggle">
+                <input type="checkbox" x-model="soundEnabled">
+                <span>Sesli Uyarı</span>
+            </label>
+        </div>
+    </div>
+    <audio id="alertSound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3"></audio>
+    <script src="script.js"></script>
+</body>
+</html> 

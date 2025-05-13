@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+/* Temalar */
+body.default {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body.dark {
+    background: #1a1a1a;
+}
+
+body.light {
+    background: #f0f2f5;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    transition: all 0.3s ease;
+}
+
+.container.dark {
+    background: #2d2d2d;
+    color: #fff;
+}
+
+.container.light {
+    background: #ffffff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.fullscreen-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: inherit;
+}
+
+.theme-selector {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.theme-selector button {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+.theme-selector button.active {
+    background: #764ba2;
+}
+
+.preset-times {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.preset-times button {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+h1 {
+    color: inherit;
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
+.timer-input {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+input {
+    width: 100px;
+    padding: 0.5rem;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+    background: transparent;
+    color: inherit;
+}
+
+.dark input {
+    border-color: #444;
+    color: #fff;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+}
+
+.timer-display {
+    margin: 2rem 0;
+}
+
+.time {
+    font-size: 4rem;
+    font-weight: bold;
+    color: inherit;
+    font-family: monospace;
+}
+
+.timer-status {
+    color: inherit;
+    opacity: 0.8;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.settings {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .settings {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.sound-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.sound-toggle input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Tam ekran modu */
+.container.fullscreen {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container.fullscreen .time {
+    font-size: 8rem;
+} 
